@@ -1,0 +1,39 @@
+[debug] [2025-11-01T20:13:31.589Z] ----------------------------------------------------------------------
+[debug] [2025-11-01T20:13:31.596Z] Command:       /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/firebase projects:create yemen-brand-2025
+[debug] [2025-11-01T20:13:31.598Z] CLI Version:   14.23.0
+[debug] [2025-11-01T20:13:31.598Z] Platform:      android
+[debug] [2025-11-01T20:13:31.598Z] Node Version:  v22.19.0
+[debug] [2025-11-01T20:13:31.600Z] Time:          Sat Nov 01 2025 23:13:31 GMT+0300 (Arabian Standard Time)
+[debug] [2025-11-01T20:13:31.600Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-01T20:13:31.615Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-01T20:13:31.617Z] > authorizing via signed-in user (isslammuhammad26@gmail.com)
+[debug] [2025-11-01T20:13:59.126Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:13:59.128Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:13:59.132Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-11-01T20:13:59.132Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"yemen-brand-2025","name":"Yemen Brand Studio"}
+[debug] [2025-11-01T20:14:00.395Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-11-01T20:14:00.396Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.5279748793718182736"}
+[debug] [2025-11-01T20:14:00.399Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:00.399Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:00.400Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 [none]
+[debug] [2025-11-01T20:14:01.220Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 200
+[debug] [2025-11-01T20:14:01.221Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 {"name":"operations/create_project.global.5279748793718182736"}
+[debug] [2025-11-01T20:14:01.726Z] [Project Creation Poller] Retrying task index 0
+[debug] [2025-11-01T20:14:01.728Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:01.728Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:01.729Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 [none]
+[debug] [2025-11-01T20:14:02.061Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 200
+[debug] [2025-11-01T20:14:02.062Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5279748793718182736 {"name":"operations/create_project.global.5279748793718182736","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"430035837049","projectId":"yemen-brand-2025","lifecycleState":"ACTIVE","name":"Yemen Brand Studio","createTime":"2025-11-01T20:14:01.528511Z"}}
+[debug] [2025-11-01T20:14:02.066Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:02.066Z] Checked if tokens are valid: true, expires at: 1762030678160
+[debug] [2025-11-01T20:14:02.067Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/yemen-brand-2025:addFirebase [none]
+[debug] [2025-11-01T20:14:03.575Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/yemen-brand-2025:addFirebase 403
+[debug] [2025-11-01T20:14:03.578Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/yemen-brand-2025:addFirebase {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-11-01T20:14:03.586Z] Request to https://firebase.googleapis.com/v1beta1/projects/yemen-brand-2025:addFirebase had HTTP Error: 403, The caller does not have permission
+[debug] [2025-11-01T20:14:03.746Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/yemen-brand-2025:addFirebase had HTTP Error: 403, The caller does not have permission
+    at responseToError (/data/data/com.termux/files/usr/lib/node_modules/firebase-tools/lib/responseToError.js:53:12)
+    at RetryOperation._fn (/data/data/com.termux/files/usr/lib/node_modules/firebase-tools/lib/apiv2.js:322:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.
