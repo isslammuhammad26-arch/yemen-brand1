@@ -35,7 +35,7 @@ body {
 }
 
 .navbar {
-    padding: 15px 20px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,12 +84,12 @@ body {
 .hero {
     background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
     color: white;
-    padding: 100px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -133,7 +133,7 @@ body {
 .stats-section {
     background: #1e40af;
     color: white;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 .stats-grid {
@@ -161,7 +161,7 @@ body {
 
 /* Section */
 .section {
-    padding: 80px 20px;
+    padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -171,6 +171,7 @@ body {
     font-size: 36px;
     margin-bottom: 15px;
 }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 .section-subtitle {
     text-align: center;
@@ -220,7 +221,7 @@ body {
 /* Testimonials */
 .testimonials {
     background: #f8fafc;
-    padding: 80px 20px;
+    padding: 50px 20px;
 }
 
 .testimonial-grid {
@@ -364,7 +365,7 @@ body {
 @media (max-width: 768px) {
     .hero h1 { font-size: 32px; }
     .nav-menu { flex-direction: column; gap: 15px; }
-    .stat-item h3 { font-size: 36px; }
+    .stat-item h3 { font-size: 26px; }
 }
     </style>
 </head>
@@ -380,7 +381,7 @@ body {
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
+                <li><a href="#about">من نحن<section class="section">
                 <li><a href="#services">الخدمات</a></li>
                 <li><a href="#testimonials">آراء العملاء</a></li>
                 <li><a href="#contact">تواصل</a></li>
@@ -395,9 +396,7 @@ body {
             <a href="#contact" class="btn btn-primary">ابدأ مشروعك الآن</a>
             <a href="#services" class="btn btn-secondary">استعرض خدماتنا</a>
         </div>
-    </section>
-
-    <section class="stats-section">
+        <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
                 <h3>150+</h3>
@@ -416,17 +415,13 @@ body {
                 <p>دعم فني</p>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="about">
-        <h2 class="section-title">من نحن</h2>
-        <p class="section-subtitle">Yemen Brand استوديو متخصص في تصميم وتطوير المواقع الإلكترونية، نجمع بين الإبداع والتكنولوجيا لتقديم حلول رقمية متكاملة</p>
-    </section>
-
-    <section class="section" id="services" style="background: #f8fafc;">
+<section class="section" id="about" 
+style="padding: 20px 20px;">
+    <h2 class="section-title">من نحن</h2>
+    <p class="section-subtitle">Yemen Brand استوديو متخصص في تصميم وتطوير المواقع الإلكترونية، نجمع بين الإبداع والتكنولوجيا لتقديم حلول رقمية متكاملة</p>
+</section>
         <h2 class="section-title">خدماتنا</h2>
-        <p class="section-subtitle">نقدم مجموعة شاملة من الخدمات الرقمية</p>
-        
+        <p class="section-subtitle">نقدم مجموعة شاملة من الخدمات الرقمية</>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🎨</div>
