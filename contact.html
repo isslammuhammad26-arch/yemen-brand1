@@ -1,0 +1,75 @@
+cat > contact.html << 'EOF'
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemen Brand - تواصل معنا</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">مرحباً بك في Yemen Brand - استوديو تصميم المواقع الاحترافي</div>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="Yemen Brand">
+                <span>Yemen Brand</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="portfolio.html">أعمالنا</a></li>
+                <li><a href="contact.html" class="active">تواصل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1 class="page-title">تواصل معنا</h1>
+        <p class="page-subtitle">نحن هنا لمساعدتك في تحقيق أهدافك الرقمية</p>
+
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" placeholder="+967" required>
+            </div>
+            <div class="form-group">
+                <label for="message">رسالتك</label>
+                <textarea id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+
+        <div class="content-box" style="margin-top: 40px;">
+            <h2>معلومات التواصل</h2>
+            <p>📧 البريد الإلكتروني: info@yemenbrand.com</p>
+            <p>📱 الهاتف: +967 784 180 539</p>
+            <p>📍 الموقع: صنعاء، اليمن</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="about.html">من نحن</a>
+            <a href="services.html">الخدمات</a>
+            <a href="contact.html">تواصل</a>
+        </div>
+        <p>&copy; 2025 Yemen Brand. جميع الحقوق محفوظة</p>
+    </footer>
+
+    <a href="https://wa.me/967784180539" target="_blank" class="chat-widget">
+        <div class="chat-button">💬</div>
+    </a>
+</body>
+</html>
+EOF
