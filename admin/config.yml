@@ -6,10 +6,14 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "test"
-    label: "Test"
-    folder: "content/test"
+  - name: "works"
+    label: "الأعمال"
+    folder: "content/works"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "العنوان", name: "title", widget: "string" }
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+      - { label: "الوصف", name: "description", widget: "text" }
+      - { label: "الصورة", name: "image", widget: "image" }
+      - { label: "التاريخ", name: "date", widget: "datetime" }
