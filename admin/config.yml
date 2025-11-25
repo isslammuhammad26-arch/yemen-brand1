@@ -10,10 +10,11 @@ collections:
     label: "الأعمال"
     folder: "content/works"
     create: true
+    format: "json"               # 👈 أضف هذا السطر فقط هنا
     slug: "{{slug}}"
     fields:
       - { label: "العنوان", name: "title", widget: "string" }
-      - {label: "المحتوى", name: "body", widget: "markdown"}
+      - { label: "المحتوى", name: "body", widget: "markdown" }
       - { label: "الوصف", name: "description", widget: "text" }
       - { label: "الصورة", name: "image", widget: "image" }
       - { label: "التاريخ", name: "date", widget: "datetime" }
