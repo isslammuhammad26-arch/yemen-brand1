@@ -61,15 +61,53 @@ ul { list-style: none; }
     width: auto;  /* العرض يتعدل تلقائياً */
     margin-left: 10px; /* مسافة بين الأيقونة والنص */
 }
-
-.btn-contact {
-    background: var(--primary);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 700;
+/* --- تحسين أزرار الهيرو فوق الخلفية المخططة --- */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* زيادة المسافة قليلاً */
+    margin-top: 40px;
+    position: relative;
+    z-index: 10; /* لضمان ظهورها فوق النقش */
 }
-.btn-contact:hover { background: var(--secondary); transform: translateY(-2px); }
+
+/* الزر الرئيسي (الذهبي) - إضافة ظل ليبرز */
+.btn-main {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 14px 35px; /* تكبير قليلاً */
+    border-radius: 50px; /* جعل الحواف دائرية أكثر */
+    font-weight: 800;
+    box-shadow: 0 10px 20px -10px rgba(245, 158, 11, 0.6); /* ظل ذهبي */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--accent); /* لضمان التناسق */
+}
+
+.btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -10px rgba(245, 158, 11, 0.8);
+}
+
+/* زر الحدود (شاهد أعمالنا) - المشكلة هنا وحلها */
+.btn-outline {
+    /* بدلاً من الشفافية الكاملة، نضع خلفية كحلية شبه شفافة */
+    background: rgba(15, 23, 42, 0.6); 
+    border: 2px solid rgba(255, 255, 255, 0.4); /* حدود بيضاء أنعَم */
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3); /* ظل داكن */
+    backdrop-filter: blur(5px); /* تأثير زجاجي ضبابي خلف الزر */
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+    border-color: white;
+    transform: translateY(-3px);
+}
 
 /* --- Hero Section (المطور) --- */
 .hero {
