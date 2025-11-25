@@ -55,6 +55,12 @@ ul { list-style: none; }
 .nav-menu { display: flex; gap: 25px; }
 .nav-link { color: var(--text-dark); font-weight: 600; font-size: 1rem; }
 .nav-link:hover, .nav-link.active { color: var(--secondary); }
+/* تنسيق صورة اللوجو */
+.logo img {
+    height: 45px; /* ارتفاع مناسب للشريط */
+    width: auto;  /* العرض يتعدل تلقائياً */
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+}
 
 .btn-contact {
     background: var(--primary);
