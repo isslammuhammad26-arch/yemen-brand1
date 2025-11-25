@@ -8,139 +8,385 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="top-bar">أهلاً وسهلاً بك في Yemen Brand - استوديو تصميم ويب احترافي</div>
-        <nav class="navbar">
-            <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="Yemen Brand">
-                <span>Yemen Brand</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="portfolio.html">الأعمال</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-            </ul>
-        </nav>
+        <h2 class="page-title">خدماتنا الرئيسية</h2> 
+        <div class="services-grid">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemen Brand | ريادة التحول الرقمي</title>
+    <meta name="description" content="مؤسسة يمن براند - الحلول الرقمية المتقدمة، تصميم المواقع، وتطوير الهوية التجارية للشركات الكبرى.">
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f172a;      /* كحلي عميق - ثقة */
+            --secondary: #3b82f6;    /* أزرق تقني - ابتكار */
+            --accent: #f59e0b;       /* ذهبي - تميز */
+            --bg-body: #f1f5f9;
+            --surface: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo i { color: var(--secondary); }
+
+        .nav-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .nav-btn:hover { background: var(--secondary); transform: translateY(-2px); }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
+
+        /* --- Grid Section --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header .line {
+            width: 80px; height: 4px; background: var(--secondary); margin: 0 auto; border-radius: 2px;
+        }
+
+        #works-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- Professional Card --- */
+        .pro-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+
+        .card-tag {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .read-more:hover { gap: 10px; color: var(--secondary); }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 5%;
+            margin-top: auto;
+            border-top: 5px solid var(--secondary);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .footer-brand p { opacity: 0.7; max-width: 300px; }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: var(--accent); }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: #e2e8f0;
+            height: 300px;
+            border-radius: 16px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;} }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar { padding: 1rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .social-links { margin-top: 20px; }
+            .social-links a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand-logo">
+            <i class="fas fa-layer-group"></i> Yemen Brand
+        </a>
+        <a href="#contact" class="nav-btn">ابدأ مشروعك</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">🚀 شريكك الاستراتيجي في النمو</span>
+            <h1>نحول أفكارك إلى<br>واقع رقمي مذهل</h1>
+            <p>حلول برمجية متكاملة، تصميم مواقع بمعايير عالمية، وهوية بصرية تخلد في الأذهان.</p>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>🚀 نصنع التميز الرقمي لعلامتك التجارية</h1>
-        <p>حلول تصميم وتطوير ويب احترافية مخصصة لنجاح عملك</p>
-        <div>
-            <a href="contact.html" class="btn btn-primary">ابدأ مشروعك الآن</a>
-            <a href="services.html" class="btn btn-secondary">استكشف خدماتنا</a>
+    <section class="container">
+        <div class="section-header">
+            <h2>أحدث المشاريع والرؤى</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div id="works-container">
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
         </div>
     </section>
 
-    <div class="main-content">
-        <div class="content-box">
-            <h2>لماذا تختار Yemen Brand؟</h2>
-            <p>نحن فريق متخصص من المصممين والمطورين الذين يجمعون بين الإبداع والتقنية لتقديم حلول رقمية فعالة تساعد عملك على النمو والنجاح.</p>
-            <p>منذ تأسيسنا، نجحنا في تنفيذ أكثر من 150 مشروع رقمي لعملاء من مختلف القطاعات، ونفخر بتقديم خدمة احترافية ودعم فني مستمر.</p>
-        </div>
-
-        <h2 class="page-title">خدماتنا الرئيسية</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>تصميم المواقع</h3>
-                <p>تصاميم عصرية وجذابة تعكس هويتك التجارية</p>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Yemen Brand</h3>
+                <p>نحن نصنع المستقبل الرقمي للشركات في اليمن والشرق الأوسط. دقة في التنفيذ، وإبداع بلا حدود.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>تطوير المواقع</h3>
-                <p>برمجة احترافية بأحدث التقنيات والمعايير</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛒</div>
-                <h3>متاجر إلكترونية</h3>
-                <p>حلول متكاملة للتجارة الإلكترونية</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
-    </div>
-
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="about.html">من نحن</a>
-            <a href="services.html">الخدمات</a>
-            <a href="contact.html">تواصل</a>
+        <div style="text-align: center; margin-top: 40px; opacity: 0.5; font-size: 0.9rem;">
+            &copy; 2025 Yemen Brand. All rights reserved.
         </div>
-        <p>&copy; 2025 Yemen Brand. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <a href="https://wa.me/967784180539" target="_blank" class="chat-widget">
-        <div class="chat-button">💬</div>
-<section id="latest-works">
-    <h2>أحدث الأعمال والمقالات</h2>
-    <div id="works-container" style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-        <p>جاري تحميل البيانات...</p>
-    </div>
-</section>
+    <script>
+        const USERNAME = 'isslammuhammad26-arch';
+        const REPO_NAME = 'yemen-brand1';
+        const FOLDER_PATH = 'content/works';
 
-<script>
-    // إعدادات المستودع
-    const USERNAME = 'isslammuhammad26-arch';
-    const REPO_NAME = 'yemen-brand1'; // تأكد أن هذا هو الاسم الصحيح في GitHub
-    const FOLDER_PATH = 'content/works'; // المجلد الذي حددته في config.yml
+        async function fetchWorks() {
+            const container = document.getElementById('works-container');
+            const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
 
-    async function fetchWorks() {
-        const container = document.getElementById('works-container');
-        const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Failed to connect');
+                const files = await response.json();
 
-        try {
-            // 1. جلب قائمة الملفات
-            const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error('فشل الوصول للمجلد');
-            const files = await response.json();
+                // Clear Skeletons
+                container.innerHTML = '';
 
-            // تنظيف الحاوية
-            container.innerHTML = '';
+                // Filter & Sort (Newest First hack based on name if formatted correctly, otherwise basic order)
+                const jsonFiles = files.filter(file => file.name.endsWith('.json'));
 
-            // 2. الدوران على كل ملف وجلب محتواه
-            for (const file of files) {
-                if (file.name.endsWith('.json')) {
+                if (jsonFiles.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; width:100%;">لا توجد أعمال لعرضها حالياً.</p>';
+                    return;
+                }
+
+                for (const file of jsonFiles) {
                     const fileData = await fetch(file.download_url);
                     const post = await fileData.json();
 
-                    // 3. إنشاء شكل البطاقة (HTML)
-                    const card = document.createElement('div');
-                    card.style.border = '1px solid #ddd';
-                    card.style.padding = '15px';
-                    card.style.borderRadius = '8px';
-                    card.style.background = '#fff';
-
-                    // التعامل مع الصورة (إذا وجدت)
-                    let imageHTML = '';
+                    // Image Handling
+                    let imageSrc = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; // Pro Placeholder
                     if (post.image) {
-                        // تعديل مسار الصورة ليعمل
-                        const cleanPath = post.image.replace('public/', '').replace('/public', ''); 
-                        imageHTML = `<img src="${cleanPath}" alt="${post.title}" style="max-width:100%; height:auto; border-radius:4px;">`;
+                        imageSrc = post.image.replace('public/', '').replace('/public', '');
                     }
 
-                    // وضع المحتوى داخل البطاقة
-                    card.innerHTML = `
-                        ${imageHTML}
-                        <h3 style="margin-top:10px;">${post.title}</h3>
-                        <p style="color:#666;">${post.description || ''}</p>
-                        <hr>
-                        <div style="font-size:0.9em;">${post.body ? post.body.substring(0, 100) + '...' : ''}</div>
-                    `;
+                    // Text Truncate
+                    let desc = post.description || '';
+                    if (!desc && post.body) desc = post.body.substring(0, 100) + '...';
 
+                    // Create Pro Card
+                    const card = document.createElement('div');
+                    card.className = 'pro-card';
+                    card.innerHTML = `
+                        <div class="card-img" style="background-image: url('${imageSrc}'); background-size: cover; background-position: center;"></div>
+                        <div class="card-body">
+                            <div class="card-tag">مدونة / أعمال</div>
+                            <h3 class="card-title">${post.title}</h3>
+                            <p class="card-desc">${desc}</p>
+                            <div class="card-footer">
+                                <span style="font-size:0.8rem; color:#94a3b8;"><i class="far fa-clock"></i> ${new Date().toLocaleDateString('ar-EG')}</span>
+                                <a href="article.html?post=${file.name}" class="read-more">
+                                    اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
                     container.appendChild(card);
                 }
-            }
-        } catch (error) {
-            console.error(error);
-            container.innerHTML = '<p>لا توجد مقالات منشورة حالياً، أو حدث خطأ في الاتصال.</p>';
-        }
-    }
 
-    // تشغيل الدالة عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', fetchWorks);
-</script>
-    </a>
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<p style="text-align:center; color:red;">حدث خطأ في تحميل البيانات.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchWorks);
+    </script>
 </body>
 </html>
