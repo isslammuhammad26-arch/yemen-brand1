@@ -142,7 +142,60 @@ ul { list-style: none; }
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
+}/* --- تطوير قسم الخدمات --- */
+
+/* استهداف كل بطاقة خدمة */
+.works-grid > div {
+    background: white; /* خلفية بيضاء لتحديد البطاقة */
+    padding: 40px 30px; /* مساحة داخلية كبيرة ومريحة */
+    border-radius: 20px; /* حواف دائرية ناعمة */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* ظل خفيف جداً للعمق */
+    transition: all 0.3s ease; /* تأثير ناعم عند التحويم */
+    border: 1px solid #f1f5f9; /* حدود فاتحة جداً */
+    text-align: center;
 }
+
+/* تأثير عند مرور الماوس (للكمبيوتر) */
+.works-grid > div:hover {
+    transform: translateY(-10px); /* ترتفع البطاقة قليلاً */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* يزيد الظل */
+    border-color: var(--secondary); /* يتغير لون الحدود للأزرق */
+}
+
+/* تنسيق أيقونة الخدمة */
+.works-grid > div i {
+    font-size: 4rem; /* تكبير الأيقونة */
+    color: var(--secondary);
+    margin-bottom: 25px; /* مسافة تحت الأيقونة */
+    display: inline-block;
+    padding: 20px;
+    background: rgba(37, 99, 235, 0.1); /* خلفية زرقاء فاتحة جداً خلف الأيقونة */
+    border-radius: 50%; /* جعل الخلفية دائرية */
+    transition: 0.3s;
+}
+
+.works-grid > div:hover i {
+    background: var(--secondary); /* الأيقونة تصبح زرقاء بالكامل عند التحويم */
+    color: white;
+}
+
+/* تنسيق عنوان الخدمة (h3) */
+.works-grid > div h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+/* تنسيق وصف الخدمة (p) */
+.works-grid > div p {
+    color: #64748b; /* لون رمادي مريح */
+    font-size: 1.05rem;
+    line-height: 1.7; /* زيادة المسافة بين الأسطر للقراءة */
+    max-width: 90%; /* منع النص من الوصول للحواف */
+    margin: 0 auto;
+}
+
 .work-card {
     background: white;
     border-radius: 16px;
