@@ -3,72 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yemen Brand - تواصل معنا</title>
+    <title>تواصل معنا | Yemen Brand</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="top-bar">مرحباً بك في Yemen Brand - استوديو تصميم المواقع الاحترافي</div>
-        <nav class="navbar">
-            <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="Yemen Brand">
-                <span>Yemen Brand</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="portfolio.html">أعمالنا</a></li>
-                <li><a href="contact.html" class="active">تواصل</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-layer-group"></i> Yemen Brand</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+            <li><a href="contact.html" class="nav-link active">اتصل بنا</a></li>
+        </ul>
+    </nav>
 
-    <div class="main-content">
-        <h1 class="page-title">تواصل معنا</h1>
-        <p class="page-subtitle">نحن هنا لمساعدتك في تحقيق أهدافك الرقمية</p>
+    <section class="page-header hero" style="padding: 60px 5%;">
+        <h1>تواصل معنا</h1>
+        <p>فريقنا جاهز للرد على استفساراتك وبدء مشروعك</p>
+    </section>
 
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">الاسم الكامل</label>
-                <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
-            </div>
-            <div class="form-group">
-                <label for="email">البريد الإلكتروني</label>
-                <input type="email" id="email" placeholder="email@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">رقم الهاتف</label>
-                <input type="tel" id="phone" placeholder="+967" required>
-            </div>
-            <div class="form-group">
-                <label for="message">رسالتك</label>
-                <textarea id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">إرسال الرسالة</button>
-        </form>
+    <section class="section-padding">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 style="margin-bottom:30px; color:var(--primary)">بيانات التواصل</h3>
+                
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <strong>واتساب مباشر</strong>
+                        <p><a href="https://wa.me/967784180539" dir="ltr" style="color:var(--text-grey)">+967 784 180 539</a></p>
+                    </div>
+                </div>
 
-        <div class="content-box" style="margin-top: 40px;">
-            <h2>معلومات التواصل</h2>
-            <p>📧 البريد الإلكتروني: info@yemenbrand.com</p>
-            <p>📱 الهاتف: +967 784 180 539</p>
-            <p>📍 الموقع: صنعاء، اليمن</p>
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
+                    <div>
+                        <strong>فيسبوك</strong>
+                        <p><a href="https://www.facebook.com/yemenbrand25" target="_blank" style="color:var(--text-grey)">Yemen Brand</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <strong>البريد الإلكتروني</strong>
+                        <p>info@yemenbrand.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form name="contact" method="POST" data-netlify="true" style="background:#f8fafc; padding:30px; border-radius:15px;">
+                <h3 style="margin-bottom:20px;">أرسل رسالة</h3>
+                <div style="margin-bottom:15px;">
+                    <input type="text" name="name" placeholder="الاسم الكامل" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <input type="email" name="email" placeholder="البريد الإلكتروني" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <textarea name="message" rows="4" placeholder="تفاصيل المشروع..." required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;"></textarea>
+                </div>
+                <button type="submit" class="btn-contact" style="width:100%; border:none; cursor:pointer;">إرسال الآن</button>
+            </form>
         </div>
-    </div>
+    </section>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="about.html">من نحن</a>
-            <a href="services.html">الخدمات</a>
-            <a href="contact.html">تواصل</a>
-        </div>
-        <p>&copy; 2025 Yemen Brand. جميع الحقوق محفوظة</p>
-    </footer>
-
-    <a href="https://wa.me/967784180539" target="_blank" class="chat-widget">
-        <div class="chat-button">💬</div>
-    </a>
+    <a href="https://wa.me/967784180539" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </body>
 </html>
-EOF
