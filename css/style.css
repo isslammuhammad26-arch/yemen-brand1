@@ -324,3 +324,33 @@ footer {
     transform: scale(1.1);
 }
 
+/* =========================================
+   إصلاحات الهاتف (Mobile Responsive Fixes)
+   ========================================= */
+@media (max-width: 768px) {
+    /* ترتيب العناصر عمودياً في الموبايل */
+    .container, 
+    .contact-content, 
+    .about-content,
+    .hero .container {
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 15px !important;
+        display: flex !important;
+    }
+
+    /* توسيع النصوص والصور لتملأ الشاشة */
+    .about-text, .about-image, 
+    .contact-info, form {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    /* تصغير الخطوط الكبيرة */
+    h1 { font-size: 1.8rem !important; }
+    
+    /* ترتيب أزرار الهيدر */
+    .hero-btns { flex-direction: column; gap: 10px; width: 100%; }
+    .btn-main, .btn-outline { width: 100%; text-align: center; display: block; }
+}
