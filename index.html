@@ -185,7 +185,7 @@
                             <div class="work-body">
                                 <h3 class="work-title">${data.title}</h3>
                                 <p class="work-desc">${data.description || data.body.substring(0,60)+'...'}</p>
-                                <a href="article.html?post=${file.name}" class="read-more">
+<a href="article.html?id=${file.name.replace('.json', '')}" class="read-more">
                                     تفاصيل المشروع <i class="fas fa-arrow-left" style="font-size:0.8rem; margin-right:5px;"></i>
                                 </a>
                             </div>
