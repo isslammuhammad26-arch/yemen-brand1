@@ -4,93 +4,294 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yemen Brand | الشريك الرقمي الأول في اليمن</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="وكالة يمن براند للحلول الرقمية، تصميم مواقع، هوية بصرية، وتسويق إلكتروني.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+    
+    <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        :root {
+            --primary: #002366; /* كحلي ملكي */
+            --secondary: #d4af37; /* ذهبي */
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        /* تنسيق الهيدر */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #002366 0%, #001540 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .btn-main {
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* أقسام عامة */
+        .section-padding { padding: 80px 0; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+        .line { width: 60px; height: 4px; background: var(--secondary); margin: 0 auto; border-radius: 2px; }
+
+        /* البطاقات (خدمات وأعمال) */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .work-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .work-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .work-body { padding: 20px; text-align: right; }
+        .work-title { color: var(--primary); margin-bottom: 10px; }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* الفوتر */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--secondary); }
+
+        /* تجاوب الهاتف */
+        @media (max-width: 768px) {
+            .navbar .container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2rem; }
+            .d-none-mobile { display: none; }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* جعلناه يسار ليكون بعيداً عن الإبهام قليلاً أو يمين حسب الرغبة */
+            background-color: #25d366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+    </style>
+</head>
 <body>
 
     <nav class="navbar">
-<img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="Yemen Brand" style="max-height: 60px;">
-</a>
-        
-        <ul class="nav-menu">
-<li><a href="index.html" class="nav-link active">الرئيسية</a></li>
-<li><a href="about.html" class="nav-link">من نحن</a></li>
-<li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
-        </ul>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="Yemen Brand" style="max-height: 60px;">
+            </a>
 
-        <a href="https://wa.me/967784180539" class="btn-contact d-none-mobile">
-            <i class="fab fa-whatsapp"></i> اطلب خدمة
-        </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+            </ul>
+
+            <a href="https://wa.me/967784180539" class="btn-main d-none-mobile" style="padding: 8px 20px; font-size: 0.9rem;">
+                <i class="fab fa-whatsapp"></i> اطلب خدمة
+            </a>
+        </div>
     </nav>
 
     <header class="hero">
         <div class="container">
             <h1>نحول أفكارك إلى واقع رقمي</h1>
-            <p>شركة يمن براند تقدم أرقى حلول تصميم المواقع والهوية البصرية. جودة عالمية بأيادي محترفة.</p>
+            <p>شركة يمن براند تقدم أرقى حلول تصميم المواقع والهوية البصرية. جودة عالمية بأيادي يمنية محترفة.</p>
             <div class="hero-btns">
-                <a href="https://wa.me/967784180539" class="btn-main"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
+                <a href="https://wa.me/967784180539" class="btn-main"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
                 <a href="#works" class="btn-outline">شاهد أعمالنا</a>
             </div>
         </div>
     </header>
 
     <section class="section-padding">
-        <div class="section-title">
-            <h2>خدماتنا</h2>
-            <div class="line"></div>
-        </div>
-        <div class="works-grid" style="text-align:center;">
-            <div style="padding:20px;">
-                <i class="fas fa-laptop-code fa-3x" style="color:var(--secondary); margin-bottom:15px;"></i>
-                <h3>تطوير المواقع</h3>
-                <p style="color:#666">مواقع سريعة، آمنة، ومتجاوبة مع جميع الشاشات.</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا المميزة</h2>
+                <div class="line"></div>
             </div>
-            <div style="padding:20px;">
-                <i class="fas fa-paint-brush fa-3x" style="color:var(--secondary); margin-bottom:15px;"></i>
-                <h3>تصميم الهوية</h3>
-                <p style="color:#666">شعارات وتصاميم تعكس قوة علامتك التجارية.</p>
-            </div>
-            <div style="padding:20px;">
-                <i class="fas fa-bullhorn fa-3x" style="color:var(--secondary); margin-bottom:15px;"></i>
-                <h3>التسويق الرقمي</h3>
-                <p style="color:#666">خطط استراتيجية للوصول لجمهورك المستهدف.</p>
+            <div class="works-grid" style="text-align:center;">
+                <div style="padding:30px; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-laptop-code fa-3x" style="color:var(--secondary); margin-bottom:20px;"></i>
+                    <h3>تطوير المواقع</h3>
+                    <p style="color:#666">تصميم مواقع سريعة، آمنة، ومتجاوبة مع جميع الشاشات بأحدث التقنيات.</p>
+                </div>
+                <div style="padding:30px; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-paint-brush fa-3x" style="color:var(--secondary); margin-bottom:20px;"></i>
+                    <h3>تصميم الهوية</h3>
+                    <p style="color:#666">شعارات وتصاميم إبداعية تعكس قوة علامتك التجارية وتميزها في السوق.</p>
+                </div>
+                <div style="padding:30px; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fas fa-bullhorn fa-3x" style="color:var(--secondary); margin-bottom:20px;"></i>
+                    <h3>التسويق الرقمي</h3>
+                    <p style="color:#666">خطط استراتيجية مدروسة للوصول لجمهورك المستهدف وزيادة المبيعات.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="works" class="section-padding" style="background: white;">
-        <div class="section-title"><section class="section-padding" style="background-color: #f8fafc;"> <div class="container">
-            
+    <section class="section-padding" style="background-color: var(--bg-light);"> 
+        <div class="container">
             <div class="section-title">
                 <h2>لماذا تختار Yemen Brand؟</h2>
                 <div class="line"></div>
                 <p style="max-width: 700px; margin: 20px auto 0; color: #64748b;">
-                    لسنا مجرد شركة تصميم، نحن شركاء نجاحك الرقمي. إليك ما يميزنا عن غيرنا في السوق.
+                    لسنا مجرد شركة تصميم، نحن شركاء نجاحك الرقمي.
                 </p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;">
-                
                 <div style="display: flex; gap: 20px; align-items: flex-start;">
                     <div style="flex-shrink: 0; width: 60px; height: 60px; background: rgba(37, 99, 235, 0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-tachometer-alt fa-2x" style="color: var(--secondary);"></i>
                     </div>
                     <div>
                         <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);">سرعة وأداء استثنائي</h3>
-                        <p style="color: #64748b; line-height: 1.6;">نستخدم أحدث تقنيات الويب (JAMstack) لضمان تحميل موقعك في أجزاء من الثانية، مما يرفع ترتيبك في جوجل.</p>
+                        <p style="color: #64748b; line-height: 1.6;">نستخدم أحدث تقنيات الويب لضمان تحميل موقعك في أجزاء من الثانية.</p>
                     </div>
                 </div>
 
                 <div style="display: flex; gap: 20px; align-items: flex-start;">
                     <div style="flex-shrink: 0; width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-bullseye fa-2x" style="color: var(--accent);"></i>
+                        <i class="fas fa-bullseye fa-2x" style="color: var(--secondary);"></i>
                     </div>
                     <div>
                         <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);">تصميم يحقق مبيعات</h3>
-                        <p style="color: #64748b; line-height: 1.6;">لا نكتفي بالجمال، بل نصمم رحلة مستخدم ذكية توجه الزائر لاتخاذ الإجراء المطلوب (اتصال، شراء).</p>
+                        <p style="color: #64748b; line-height: 1.6;">نصمم رحلة مستخدم ذكية توجه الزائر لاتخاذ الإجراء المطلوب.</p>
                     </div>
                 </div>
 
@@ -98,8 +299,8 @@
                     <div style="flex-shrink: 0; width: 60px; height: 60px; background: rgba(16, 185, 129, 0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-headset fa-2x" style="color: #10b981;"></i> </div>
                     <div>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);">دعم فني لا يتوقف</h3>
-                        <p style="color: #64748b; line-height: 1.6;">علاقتنا تبدأ بعد التسليم. فريقنا متاح دائماً لمساعدتك، تحديث موقعك، وحل أي مشكلة تواجهها.</p>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);">دعم فني مستمر</h3>
+                        <p style="color: #64748b; line-height: 1.6;">فريقنا متاح دائماً لمساعدتك وتحديث موقعك.</p>
                     </div>
                 </div>
 
@@ -108,49 +309,55 @@
                         <i class="fas fa-hand-holding-usd fa-2x" style="color: #8b5cf6;"></i> </div>
                     <div>
                         <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);">قيمة مقابل سعر</h3>
-                        <p style="color: #64748b; line-height: 1.6;">نقدم باقات مرنة تناسب ميزانيتك، بدون تكاليف خفية. تحصل على جودة عالمية بسعر محلي.</p>
+                        <p style="color: #64748b; line-height: 1.6;">باقات مرنة وجودة عالمية بسعر محلي منافس.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-            <h2>أحدث الأعمال</h2>
-            <div class="line"></div>
-        </div>
-        
-        <div id="works-container" class="works-grid">
-            <p style="grid-column:1/-1; text-align:center;">جاري تحميل المشاريع...</p>
+
+    <section id="works" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>أحدث أعمالنا</h2>
+                <div class="line"></div>
+            </div>
+
+            <div id="works-container" class="works-grid">
+                <p style="grid-column:1/-1; text-align:center; padding: 20px;">⏳ جاري تحميل المشاريع...</p>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-<a href="index.html" class="logo" style="color:white;">
-    <img src="images/logo.png" alt="شعار YB"> Yemen Brand
-</a>
-
-                <p style="opacity:0.8; font-size:0.9rem;">نحن نصنع الفرق في العالم الرقمي. خبرة، إبداع، والتزام بالمواعيد.</p>
-            </div>
-            <div>
-                <h4>روابط سريعة</h4>
-                <ul style="margin-top:15px;">
-                    <li><a href="index.html" style="color:#ccc;">الرئيسية</a></li>
-                    <li><a href="contact.html" style="color:#ccc;">اتصل بنا</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>تابعنا</h4>
-                <div class="social-icons" style="margin-top:15px;">
-                    <a href="https://www.facebook.com/yemenbrand25"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://wa.me/967784180539"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;">
+                        <img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="YB" style="height: 40px; border-radius: 5px;"> Yemen Brand
+                    </a>
+                    <p style="opacity:0.8; font-size:0.9rem; margin-top: 15px; line-height: 1.6;">نحن نصنع الفرق في العالم الرقمي. خبرة، إبداع، والتزام بالمواعيد.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: var(--secondary);">روابط سريعة</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="index.html" style="color:#ccc; text-decoration: none; line-height: 2;">الرئيسية</a></li>
+                        <li><a href="about.html" style="color:#ccc; text-decoration: none; line-height: 2;">من نحن</a></li>
+                        <li><a href="contact.html" style="color:#ccc; text-decoration: none; line-height: 2;">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: var(--secondary);">تابعنا</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/yemenbrand25"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/967784180539"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.8rem;">
-            &copy; 2025 Yemen Brand. جميع الحقوق محفوظة.
+            <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.8rem; margin-top: 20px;">
+                &copy; 2025 Yemen Brand. جميع الحقوق محفوظة.
+            </div>
         </div>
     </footer>
 
@@ -171,21 +378,31 @@
                 const files = await response.json();
                 container.innerHTML = '';
 
-                // Filter & Sort
-                const jsonFiles = files.filter(f => f.name.endsWith('.json')).slice(0, 6); // Show max 6
+                // تصفية وترتيب (آخر 6 مشاريع)
+                const jsonFiles = files.filter(f => f.name.endsWith('.json')).slice(0, 6);
+
+                if (jsonFiles.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; grid-column:1/-1;">لا توجد مشاريع مضافة حالياً.</p>';
+                    return;
+                }
 
                 for (const file of jsonFiles) {
                     const data = await fetch(file.download_url).then(res => res.json());
+                    
+                    // معالجة الصورة
                     let img = 'https://via.placeholder.com/400x250?text=Yemen+Brand';
                     if (data.image) img = data.image.replace('public/', '').replace('/public', '');
+                    else if (data.thumbnail) img = data.thumbnail;
 
                     const card = `
                         <div class="work-card">
                             <img src="${img}" class="work-img" alt="${data.title}">
                             <div class="work-body">
                                 <h3 class="work-title">${data.title}</h3>
-                                <p class="work-desc">${data.description || data.body.substring(0,60)+'...'}</p>
-<a href="article.html?id=${file.name.replace('.json', '')}" class="read-more">
+                                <p style="color:#666; font-size:0.9rem; margin-bottom:15px;">
+                                    ${data.description ? data.description : (data.body ? data.body.substring(0, 60) + '...' : '')}
+                                </p>
+                                <a href="article.html?id=${file.name.replace('.json', '')}" class="read-more">
                                     تفاصيل المشروع <i class="fas fa-arrow-left" style="font-size:0.8rem; margin-right:5px;"></i>
                                 </a>
                             </div>
@@ -194,11 +411,11 @@
                     container.innerHTML += card;
                 }
             } catch (e) {
-                container.innerHTML = '<p style="text-align:center; grid-column:1/-1;">لا توجد مشاريع حالياً.</p>';
+                console.error(e);
+                container.innerHTML = '<p style="text-align:center; grid-column:1/-1;">خطأ في تحميل المشاريع. تأكد من الاتصال بالإنترنت.</p>';
             }
         }
         document.addEventListener('DOMContentLoaded', fetchWorks);
     </script>
 </body>
 </html>
-
