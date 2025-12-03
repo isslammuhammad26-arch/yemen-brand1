@@ -9,7 +9,8 @@
     
     <meta property="og:title" content="Yemen Brand">
     <meta property="og:description" content="وكالة يمن براند للحلول الرقمية">
-    <meta property="og:image" content="/images/logo.png"> <meta property="og:url" content="">
+    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:url" content="">
     <meta property="og:type" content="article">
 
     <link rel="stylesheet" href="style.css">
@@ -17,20 +18,22 @@
 <body>
 
     <header>
-<div class="logo">
-    <a href="index.html">
-        <img src="/images/logo.png" alt="Yemen Brand" style="max-height: 50px;">
-    </a>
-</div>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="index.html#services">خدماتنا</a>
-        </nav>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/images/logo.png" alt="Yemen Brand" style="max-height: 50px; vertical-align: middle;">
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="index.html#services">خدماتنا</a>
+            </nav>
+        </div>
     </header>
 
-    <main class="container" style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+    <main class="container article-page" style="padding: 2rem 1rem; max-width: 800px; margin: 0 auto;">
         <div id="article-content">
-            <p style="text-align:center;">جاري جلب المقال...</p>
+            <p style="text-align:center; padding: 2rem;">⏳ جاري جلب المقال...</p>
         </div>
     </main>
 
@@ -39,7 +42,6 @@
     </footer>
 
     <script>
-        // دالة لجلب المتغيرات من الرابط (مثل ?id=my-first-post)
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -48,62 +50,67 @@
         async function loadArticle() {
             const slug = getQueryParam('id');
             
-            // إذا لم يوجد معرف للمقال، نوجهه للصفحة الرئيسية أو صفحة خطأ
             if (!slug) {
+                // إذا لم يوجد معرف للمقال، عد للرئيسية
                 window.location.href = 'index.html';
                 return;
             }
 
             try {
-                // جلب بيانات المقال (تأكد أن مسار ملفات JSON في مشروعك صحيح)
-                // Decap CMS عادة يحفظها في مجلد content أو _posts
+                // محاولة جلب ملف الـ JSON
                 const response = await fetch(`/content/blog/${slug}.json`);
 
-                if (!response.ok) throw new Error('لم يتم العثور على المقال');
+                if (!response.ok) throw new Error('المقال غير موجود');
 
                 const data = await response.json();
 
-                // --- تحديث بيانات SEO (هذا ما يلتقطه Netlify Prerender) ---
+                // 1. تحديث الـ SEO والعناوين
                 document.title = `${data.title} | Yemen Brand`;
                 
-                // تحديث الوصف
-                document.querySelector('meta[name="description"]').setAttribute('content', data.description || data.body.substring(0, 120));
-                
-                // تحديث صور وعناوين واتساب (OG Tags)
-                document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
-                document.querySelector('meta[property="og:description"]').setAttribute('content', data.description || data.body.substring(0, 120));
-                document.querySelector('meta[property="og:image"]').setAttribute('content', data.thumbnail);
-                document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+                // تحديث الوصف والصورة للمشاركة
+                const updateMeta = (selector, value) => {
+                    const el = document.querySelector(selector);
+                    if (el && value) el.setAttribute('content', value);
+                };
 
-                // --- عرض المحتوى في الصفحة ---
+                updateMeta('meta[name="description"]', data.description || data.body.substring(0, 120));
+                updateMeta('meta[property="og:title"]', data.title);
+                updateMeta('meta[property="og:description"]', data.description || data.body.substring(0, 120));
+                updateMeta('meta[property="og:image"]', data.thumbnail);
+                updateMeta('meta[property="og:url"]', window.location.href);
+
+                // 2. عرض المحتوى في الصفحة
                 const container = document.getElementById('article-content');
                 container.innerHTML = `
                     <article class="single-article">
-                        <img src="${data.thumbnail}" alt="${data.title}" style="width:100%; border-radius:10px; margin-bottom:20px;">
-                        <h1 style="color:#002366; margin-bottom:10px;">${data.title}</h1>
-                        <div class="meta" style="color:#666; font-size:0.9rem; margin-bottom:20px;">
+                        ${data.thumbnail ? `<img src="${data.thumbnail}" alt="${data.title}" style="width:100%; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">` : ''}
+                        <h1 style="color:#002366; margin-bottom:10px; font-size: 2rem;">${data.title}</h1>
+                        <div class="meta" style="color:#666; font-size:0.9rem; margin-bottom:20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                             <span>📅 ${new Date(data.date).toLocaleDateString('ar-YE')}</span>
                         </div>
-                        <div class="body-text" style="line-height:1.8; font-size:1.1rem;">
+                        <div class="body-text" style="line-height:1.8; font-size:1.1rem; color: #333;">
                             ${data.body} 
                         </div>
                     </article>
+                    <div style="margin-top: 3rem; text-align: center;">
+                        <a href="index.html" style="background: #002366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">عودة للرئيسية</a>
+                    </div>
                 `;
 
             } catch (error) {
                 console.error(error);
                 document.getElementById('article-content').innerHTML = `
                     <div style="text-align:center; padding:50px;">
-                        <h2>عذراً، المقال غير موجود 😔</h2>
-                        <a href="index.html" class="btn">العودة للرئيسية</a>
+                        <h2>عذراً، لم يتم العثور على المقال 😔</h2>
+                        <p>قد يكون الرابط خاطئاً أو تم حذف المقال.</p>
+                        <br>
+                        <a href="index.html" style="text-decoration: underline;">العودة للرئيسية</a>
                     </div>
                 `;
             }
         }
 
-        // تشغيل الدالة
         loadArticle();
     </script>
 </body>
 </html>
-
