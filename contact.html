@@ -3,72 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معنا | Yemen Brand</title>
+    <title>اتصل بنا | Yemen Brand</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-<a href="index.html" class="logo">
-<img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="Yemen Brand" style="max-height: 60px;">
-</a>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">الرئيسية</a></li>
-            <li><a href="contact.html" class="nav-link active">اتصل بنا</a></li>
-        </ul>
-    </nav>
 
-    <section class="page-header hero" style="padding: 60px 5%;">
-        <h1>تواصل معنا</h1>
-        <p>فريقنا جاهز للرد على استفساراتك وبدء مشروعك</p>
-    </section>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="Yemen Brand" style="max-height: 50px;">
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">من نحن</a>
+                <a href="contact.html" class="active">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
 
-    <section class="section-padding">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3 style="margin-bottom:30px; color:var(--primary)">بيانات التواصل</h3>
+    <section class="contact-section" style="padding: 50px 0;">
+        <div class="container contact-content" style="display: flex; gap: 40px; justify-content: space-between;">
+            
+            <form name="contact" method="POST" data-netlify="true" style="flex: 1; background: #f9f9f9; padding: 30px; border-radius: 10px;">
+                <h2 style="color: #002366; margin-bottom: 20px;">أرسل رسالة</h2>
+                <input type="hidden" name="form-name" value="contact">
                 
-                <div class="contact-info-item">
-                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <div style="margin-bottom: 15px;">
+                    <label>الاسم</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label>الرسالة</label>
+                    <textarea name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                </div>
+                
+                <button type="submit" style="background: #002366; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-weight: bold;">إرسال الآن</button>
+            </form>
+
+            <div class="contact-info" style="flex: 1; padding: 20px;">
+                <h2 style="color: #002366; margin-bottom: 20px;">بيانات التواصل</h2>
+                
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5rem;">📱</span>
                     <div>
-                        <strong>واتساب مباشر</strong>
-                        <p><a href="https://wa.me/967784180539" dir="ltr" style="color:var(--text-grey)">+967 784 180 539</a></p>
+                        <strong>واتساب مباشر:</strong><br>
+                        <a href="https://wa.me/967784180539" style="color: #666; text-decoration: none;">+967 784 180 539</a>
                     </div>
                 </div>
 
-                <div class="contact-info-item">
-                    <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5rem;">📘</span>
                     <div>
-                        <strong>فيسبوك</strong>
-                        <p><a href="https://www.facebook.com/yemenbrand25" target="_blank" style="color:var(--text-grey)">Yemen Brand</a></p>
+                        <strong>فيسبوك:</strong><br>
+                        <a href="https://www.facebook.com/yemenbrand25" style="color: #666; text-decoration: none;">Yemen Brand</a>
                     </div>
                 </div>
 
-                <div class="contact-info-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.5rem;">🌐</span>
                     <div>
-                        <strong>البريد الإلكتروني</strong>
-                        <p>info@yemenbrand.com</p>
+                        <strong>الموقع الإلكتروني:</strong><br>
+                        <a href="https://yemenbrandagency.com" style="color: #666; text-decoration: none;">yemenbrandagency.com</a>
                     </div>
                 </div>
             </div>
-
-            <form name="contact" method="POST" data-netlify="true" style="background:#f8fafc; padding:30px; border-radius:15px;">
-                <h3 style="margin-bottom:20px;">أرسل رسالة</h3>
-                <div style="margin-bottom:15px;">
-                    <input type="text" name="name" placeholder="الاسم الكامل" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
-                </div>
-                <div style="margin-bottom:15px;">
-                    <input type="email" name="email" placeholder="البريد الإلكتروني" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
-                </div>
-                <div style="margin-bottom:15px;">
-                    <textarea name="message" rows="4" placeholder="تفاصيل المشروع..." required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;"></textarea>
-                </div>
-                <button type="submit" class="btn-contact" style="width:100%; border:none; cursor:pointer;">إرسال الآن</button>
-            </form>
+            
         </div>
     </section>
 
-    <a href="https://wa.me/967784180539" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 Yemen Brand</p>
+    </footer>
+
 </body>
 </html>
