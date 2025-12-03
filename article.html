@@ -9,7 +9,7 @@
     
     <meta property="og:title" content="Yemen Brand">
     <meta property="og:description" content="وكالة يمن براند للحلول الرقمية">
-    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:image" content="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg">
     <meta property="og:url" content="">
     <meta property="og:type" content="article">
 
@@ -21,7 +21,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="/images/logo.png" alt="Yemen Brand" style="max-height: 50px; vertical-align: middle;">
+                    <img src="https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg" alt="Yemen Brand" style="max-height: 50px; vertical-align: middle;">
                 </a>
             </div>
             <nav>
@@ -51,23 +51,20 @@
             const slug = getQueryParam('id');
             
             if (!slug) {
-                // إذا لم يوجد معرف للمقال، عد للرئيسية
                 window.location.href = 'index.html';
                 return;
             }
 
             try {
-                // محاولة جلب ملف الـ JSON
                 const response = await fetch(`/content/blog/${slug}.json`);
 
                 if (!response.ok) throw new Error('المقال غير موجود');
 
                 const data = await response.json();
 
-                // 1. تحديث الـ SEO والعناوين
+                // 1. تحديث الـ SEO
                 document.title = `${data.title} | Yemen Brand`;
                 
-                // تحديث الوصف والصورة للمشاركة
                 const updateMeta = (selector, value) => {
                     const el = document.querySelector(selector);
                     if (el && value) el.setAttribute('content', value);
@@ -76,10 +73,13 @@
                 updateMeta('meta[name="description"]', data.description || data.body.substring(0, 120));
                 updateMeta('meta[property="og:title"]', data.title);
                 updateMeta('meta[property="og:description"]', data.description || data.body.substring(0, 120));
-                updateMeta('meta[property="og:image"]', data.thumbnail);
+                
+                // هنا نستخدم صورة المقال إذا وجدت، وإلا نستخدم اللوجو الجديد كاحتياطي
+                const shareImage = data.thumbnail || "https://i.ibb.co/xtqHXwWB/logo-20251120-084551.jpg";
+                updateMeta('meta[property="og:image"]', shareImage);
                 updateMeta('meta[property="og:url"]', window.location.href);
 
-                // 2. عرض المحتوى في الصفحة
+                // 2. عرض المحتوى
                 const container = document.getElementById('article-content');
                 container.innerHTML = `
                     <article class="single-article">
@@ -102,8 +102,6 @@
                 document.getElementById('article-content').innerHTML = `
                     <div style="text-align:center; padding:50px;">
                         <h2>عذراً، لم يتم العثور على المقال 😔</h2>
-                        <p>قد يكون الرابط خاطئاً أو تم حذف المقال.</p>
-                        <br>
                         <a href="index.html" style="text-decoration: underline;">العودة للرئيسية</a>
                     </div>
                 `;
