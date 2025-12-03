@@ -3,83 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل المشروع | Yemen Brand</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <title>جاري التحميل... | Yemen Brand</title>
+    <meta name="description" content="وكالة يمن براند للحلول الرقمية وتصميم المواقع">
+    
+    <meta property="og:title" content="Yemen Brand">
+    <meta property="og:description" content="وكالة يمن براند للحلول الرقمية">
+    <meta property="og:image" content="/images/logo.png"> <meta property="og:url" content="">
+    <meta property="og:type" content="article">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-<a href="index.html" class="logo">
-    <img src="images/logo.png" alt="شعار YB"> Yemen Brand
-</a>
-        <a href="index.html" class="nav-link">عودة للرئيسية</a>
-    </nav>
+    <header>
+        <div class="logo">Yemen Brand</div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html#services">خدماتنا</a>
+        </nav>
+    </header>
 
-    <div id="article-loader" style="text-align: center; padding: 100px;">
-        <i class="fas fa-spinner fa-spin fa-3x" style="color:var(--secondary)"></i>
-        <p style="margin-top:20px;">جاري تحميل التفاصيل...</p>
-    </div>
-
-    <div id="article-content" style="display: none;">
+    <main class="container" style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <div id="article-content">
+            <p style="text-align:center;">جاري جلب المقال...</p>
         </div>
+    </main>
 
-    <a href="https://wa.me/967784180539" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 Yemen Brand</p>
+    </footer>
 
     <script>
-        const USERNAME = 'isslammuhammad26-arch';
-        const REPO_NAME = 'yemen-brand1';
-        const FOLDER_PATH = 'content/works';
+        // دالة لجلب المتغيرات من الرابط (مثل ?id=my-first-post)
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
         async function loadArticle() {
-            const params = new URLSearchParams(window.location.search);
-            const fileName = params.get('post');
-
-            if (!fileName) {
-                document.getElementById('article-loader').innerHTML = '<h3>لم يتم تحديد مشروع!</h3>';
+            const slug = getQueryParam('id');
+            
+            // إذا لم يوجد معرف للمقال، نوجهه للصفحة الرئيسية أو صفحة خطأ
+            if (!slug) {
+                window.location.href = 'index.html';
                 return;
             }
 
             try {
-                const response = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${REPO_NAME}/main/${FOLDER_PATH}/${fileName}`);
-                if (!response.ok) throw new Error('Not found');
-                const post = await response.json();
+                // جلب بيانات المقال (تأكد أن مسار ملفات JSON في مشروعك صحيح)
+                // Decap CMS عادة يحفظها في مجلد content أو _posts
+                const response = await fetch(`/content/blog/${slug}.json`);
 
-                let imgHTML = '';
-                if(post.image) {
-                    const cleanPath = post.image.replace('public/', '').replace('/public', '');
-                    imgHTML = `<img src="${cleanPath}" class="article-img" alt="${post.title}">`;
-                }
+                if (!response.ok) throw new Error('لم يتم العثور على المقال');
 
-                const html = `
-                    <div class="article-header">
-                        <h1>${post.title}</h1>
-                        <p style="color:#666"><i class="far fa-clock"></i> ${new Date(post.date).toLocaleDateString('ar-EG')}</p>
-                    </div>
-                    <div class="article-body">
-                        ${imgHTML}
-                        <div>${marked.parse(post.body)}</div>
-                        <div style="margin-top:40px; text-align:center;">
-                            <a href="https://wa.me/967784180539?text=أنا مهتم بمشروع: ${post.title}" class="btn-contact">
-                                <i class="fab fa-whatsapp"></i> اطلب مثل هذا المشروع
-                            </a>
+                const data = await response.json();
+
+                // --- تحديث بيانات SEO (هذا ما يلتقطه Netlify Prerender) ---
+                document.title = `${data.title} | Yemen Brand`;
+                
+                // تحديث الوصف
+                document.querySelector('meta[name="description"]').setAttribute('content', data.description || data.body.substring(0, 120));
+                
+                // تحديث صور وعناوين واتساب (OG Tags)
+                document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
+                document.querySelector('meta[property="og:description"]').setAttribute('content', data.description || data.body.substring(0, 120));
+                document.querySelector('meta[property="og:image"]').setAttribute('content', data.thumbnail);
+                document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+
+                // --- عرض المحتوى في الصفحة ---
+                const container = document.getElementById('article-content');
+                container.innerHTML = `
+                    <article class="single-article">
+                        <img src="${data.thumbnail}" alt="${data.title}" style="width:100%; border-radius:10px; margin-bottom:20px;">
+                        <h1 style="color:#002366; margin-bottom:10px;">${data.title}</h1>
+                        <div class="meta" style="color:#666; font-size:0.9rem; margin-bottom:20px;">
+                            <span>📅 ${new Date(data.date).toLocaleDateString('ar-YE')}</span>
                         </div>
-                    </div>
+                        <div class="body-text" style="line-height:1.8; font-size:1.1rem;">
+                            ${data.body} 
+                        </div>
+                    </article>
                 `;
 
-                const contentDiv = document.getElementById('article-content');
-                contentDiv.innerHTML = html;
-                document.getElementById('article-loader').style.display = 'none';
-                contentDiv.style.display = 'block';
-
             } catch (error) {
-                document.getElementById('article-loader').innerHTML = '<h3 style="color:red">عذراً، المشروع غير موجود أو تم حذفه.</h3>';
+                console.error(error);
+                document.getElementById('article-content').innerHTML = `
+                    <div style="text-align:center; padding:50px;">
+                        <h2>عذراً، المقال غير موجود 😔</h2>
+                        <a href="index.html" class="btn">العودة للرئيسية</a>
+                    </div>
+                `;
             }
         }
+
+        // تشغيل الدالة
         loadArticle();
     </script>
 </body>
 </html>
+
